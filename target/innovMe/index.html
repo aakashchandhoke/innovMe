@@ -132,9 +132,9 @@ Refunds and cancellations.<br/>
 The customer acknowledges and accepts that contracting INNOVME SOLUTIONS PVT LTD. it’s bounding through an obligation of means regarding the services to be performed by INNOVME SOLUTIONS PVT LTD, and because of the nature of this services, the customer is not entitled to ask for a concrete result, excepting in the cases contained in the following point.
 Notwithstanding this, refunds will only be brought into consideration in the following specific services:
 quotation, development, quality control activities and sampling and/or prototypes.</p>
-									<ul class="actions">
+									<!--<ul class="actions">
 										<li><a href="landing.html" class="button next">Get Started</a></li>
-									</ul>
+									</ul>-->
 								</div>
 							</section>
 
@@ -142,24 +142,27 @@ quotation, development, quality control activities and sampling and/or prototype
 
 				<!-- Contact -->
 					<section id="contact">
-						<div class="inner">
+                                            <div class="inner" id="asa">
 							<section>
-								<form method="post" action="#">
-									<div class="field half first">
+								<form method="post" action="SendMail">
+                                                                    <div class="field half first" id="n">
 										<label for="name">Name</label>
 										<input type="text" name="name" id="name" />
 									</div>
-									<div class="field half">
+                                                                    <div class="field half" id="e">
 										<label for="email">Email</label>
 										<input type="text" name="email" id="email" />
 									</div>
-									<div class="field">
+                                                                    <div class="field" id="m">
 										<label for="message">Message</label>
 										<textarea name="message" id="message" rows="6"></textarea>
 									</div>
+                                                                        <div id="divHidden" class="field half" style="display: none;padding-left:100px;padding-top:150PX">
+                                                                            <p>THANKS FOR CONTACTING US.</p>
+                                                                         </div>
 									<ul class="actions">
-										<li><input type="submit" value="Send Message" class="special" /></li>
-										<li><input type="reset" value="Clear" /></li>
+										<li><input type="submit" value="Send Message" class="special" id="butt" onclick="contactformsub();"/></li>
+                                                                                <li><input type="reset" value="Clear" id="reset" /></li>
 									</ul>
 								</form>
 							</section>
@@ -218,6 +221,49 @@ quotation, development, quality control activities and sampling and/or prototype
 			<script src="js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="js/main.js"></script>
+                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+                        <script type="text/javascript">
+			function contactformsub() {
+                            var name = document.getElementById('name').value;
+                            var email = document.getElementById('email').value;
+                            var message = document.getElementById('message').value;
+                            $.ajax({
+                            url: 'SendMail',
+                            data: {name: name,email:email,message:message},
+                            type: 'GET',
+                            crossDomain: true, // enable this
+                            // dataType: 'jsonp',
+                            success: function() { },
+                            error: function() { alert("failed");},
+                            // beforeSend: setHeader
+                            });
+                            var name = document.getElementById('name');
+                            var email = document.getElementById('email');
+                            var message = document.getElementById('message');
+                            var bttn = document.getElementById('butt');
+                            var n = document.getElementById('n');
+                            var e = document.getElementById('e');
+                            var m = document.getElementById('m');
+                            var reset = document.getElementById('reset');
+                            //var divid = document.getElementById('aa');
+                            //var divid1 = document.getElementById('a2');
+                            name.parentNode.removeChild(name);
+                            email.parentNode.removeChild(email);
+                            message.parentNode.removeChild(message);
+                            bttn.parentNode.removeChild(bttn);
+                            n.parentNode.removeChild(n);
+                            e.parentNode.removeChild(e);
+                            m.parentNode.removeChild(m);
+                            reset.parentNode.removeChild(reset);
+                            $('#divHidden').show();
+                            //divid.parentNode.removeChild(divid);
+                            //divid1.parentNode.removeChild(divid1);
+                            //var x = document.createElement("P");
+                            //var t = document.createTextNode("THANKS FOR CONTACTING US");
+                            //x.appendChild(t);
+                            //document.getElementById('contact').appendChild(x);
+                            }
+                        </script>
 
 	</body>
 </html>
