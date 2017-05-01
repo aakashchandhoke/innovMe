@@ -92,10 +92,10 @@ our team offers holistic services pertaining to all kinds of business functions 
 management, quality manufacturing services, product development and auditing/inspection systems.</p><br>
                                                                         <div class="inner">
                                                                             <ul class="icons" id='paRead'>
-                                                                                <li><a href="#upar" class="button" onclick="getPara();" id='read'>Read More</a></li>
+                                                                                <li class="button" onclick="getPara();" style="padding-left:10px; padding-right:10px;" id='read'>Read More</li>
                                                                             </ul>
                                                                         </div>
-                                                                        <div style="display:none" id='para'>
+                                                                        <div style="display:none" id='para' class="parag">
                                                                             <p>To put it plainly, our scope of value manufacturing/assembling administrations and aptitudes 
                                                                                 guarantee that InnovME will help you to securely explore the dim universe of China and India 
                                                                                 supply and succeed where many fizzle.So what are you sitting tight for? Stop your pursuit for 
@@ -243,11 +243,9 @@ management, quality manufacturing services, product development and auditing/ins
                         <script>
                             function getPara()
                             {
-                                $('#para').show();
-                                var e = document.getElementById('paRead');
-                                var m = document.getElementById('read');
-                                m.parentNode.removeChild(m);
-                                e.parentNode.removeChild(e);
+                                $('.parag').show();
+                                $('#paRead').hide();
+                                
                             }
                         </script>
 
