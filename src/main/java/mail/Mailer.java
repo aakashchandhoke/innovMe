@@ -19,7 +19,7 @@ public class Mailer
     public static void send(String email,String name,String msg)
     {  
         final String user="innovme24@gmail.com";//change accordingly  
-        final String pass="@@@Innovme1";   
+        final String pass="Mummy@24101993";   
   
         //1st step) Get the session object    
         Properties props = new Properties();
